@@ -1,0 +1,25 @@
+name: Run Script
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' por el nombre de tu rama principal si es diferente
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.12  # Cambia '3.x' por la versión de Python que necesites
+
+    - name: Install dependencies
+      run: pip install pywebview
+
+    - name: Run script
+      run: python tkinter2.py  # Cambia 'mi_aplicacion.py' por el nombre de tu archivo
